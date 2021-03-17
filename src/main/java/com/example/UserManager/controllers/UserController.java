@@ -28,7 +28,7 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
-	
+	private int id;
     Logger logger = LoggerFactory.getLogger(UserController.class);
 
 	
@@ -50,7 +50,7 @@ public class UserController {
 	@PostMapping("/users")
 	public String enterID(ModelMap model, @RequestParam(value="id") int userID) {
 		
-		
+		this.id = userID;
 		logger.info("Getting user");
 		User user = userService.GetUserById(userID);
 		Iterable<User> users = Arrays.asList(user);
@@ -59,9 +59,23 @@ public class UserController {
 		logger.info("Passing users to view");
 	    model.addAttribute("users", users);    
 		
-        return "users";
+        return "edit";
     }
 	
 	
+	@PostMapping("/edit")
+	public String editUser(ModelMap model, @RequestParam(value="name") String userName, 
+			@RequestParam(value="email") String userEmail, @RequestParam(value="password") String userPass) {
+		
+		if(!userName.isEmpty() && !userEmail.isEmpty() && !userPass.isEmpty()) {
+			User user = new User();
+			user.setEmail(userEmail);
+			user.setName(userName);
+			user.setPassword(userPass);
+			user.setId(id);
+			userService.UpdateUser(user);
+			return "success";
+		} else return "fail";
+    }
 
 }

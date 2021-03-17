@@ -28,9 +28,10 @@ table, th, td {
 		</c:forEach>
 	</table>
 
-	<form action="users" method="post">
-
-		<label for="i">ID:</label> <input type="text" id="id" name="id"><br>
+	<form action="/users" method="post">
+	
+	<br><br><br><br><br><br><br><br><br><br>
+		<label for="id">ID:</label> <input type="text" id="id" name="id"><br>
 		<br>
 
 		<input type="submit" value="Enter">
