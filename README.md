@@ -1,6 +1,15 @@
 # Searching for a Specific User and Updating the User Information.
 ## DESCRIPTION
 
+## How to Run Project:
+1.	Import project into Eclipse Enterprise IDE
+2.	Right click project folder and select run as > Maven Install
+3.	Go to UserManagerApplication in src/main/java/com.example.UserManager
+4.	Click run button (do step 5 if this step does not work)
+5.	If 4 does not work then, right click project and select run as > Maven build… > 
+   Enter Spring-boot:run into goals and press enter
+
+
 ## Project objective:
 
 Create a Spring MVC web application that will retrieve users based on their user ID. The retrieved user data will then be edited in a form and updated in the database. The entire database processing has to be done using Hibernate. Front pages will be made in JSP.
